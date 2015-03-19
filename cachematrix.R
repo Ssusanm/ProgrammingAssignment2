@@ -1,9 +1,9 @@
 #to take a matrix and return the inverse. Once calculated, store 
 #in cache so that it wont be recalculated.
 makeCacheMatrix <- function(x = matrix()) {
-        m <- NULL
+        m <- NULL    #assigning null value        
         set <- function(y) {
-                x <<- y
+                x <<- y #using a different environment to store it for cache purpose
                 m <<- NULL
         }
         get <- function() x
@@ -14,8 +14,8 @@ makeCacheMatrix <- function(x = matrix()) {
              getinverse = getinverse)
 }
 cacheinverse <- function(x, ...) {
-        m <- x$getinverse()
-        if(!is.null(m)) {
+        m <- x$getinverse() #gets the matrix if already existing- if yes donot calculate
+        if(!is.null(m)) {    
                 message("getting cached data")
                 return(m)
         }
